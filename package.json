@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-pg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": "14.x"
+  },
+  "type": "module",
+  "dependencies": {
+    "@ethersproject/providers": "^5.6.4",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "ethers": "^5.6.1",
+    "express": "^4.17.3",
+    "fast-memoize": "^2.5.2"
+  },
+  "description": ""
+}
