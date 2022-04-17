@@ -2,12 +2,15 @@ import dotenv from 'dotenv';
 import express from 'express';
 import { ethers } from 'ethers';
 import { WebSocketProvider, FallbackProvider } from '@ethersproject/providers';
+import cors from 'cors';
 
+import { postData } from './postData.js';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 const {
   XDAI_PROVIDER_URLS,
@@ -20,7 +23,6 @@ const {
   SET_INTERVAL_TIMER_LISTENER_TIMEOUT_PAYMENT,
   SET_INTERVAL_TIMER_LISTENER_TIMEOUT_CLAIM
 } = process.env
-
 
 const network_name_whitelist = process.env.NETWORK_WHITELIST.replace(/\d+|:/g,'');
 
@@ -135,13 +137,21 @@ network_name_whitelist.split('|').map(async network => {
 
     startConnection({ network });
   })
-
 })
 
 app.set('port', PORT || 5000);
 
 app.get('/', (req, res) => {
-  res.send('App is running...');
-}).listen(app.get('port'), function() {
+  res.send('App runing...')
+})
+
+app.post('/getMonitors', (req, res) => {
+  const data = req.body
+  // console.log(data)
+
+  res.json(postData);
+})
+
+app.listen(app.get('port'), function() {
   console.log('App is running, server is listening on port ', app.get('port'));
 });

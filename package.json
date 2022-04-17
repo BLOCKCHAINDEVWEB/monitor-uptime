@@ -16,6 +16,7 @@
   "dependencies": {
     "@ethersproject/providers": "^5.6.4",
     "axios": "^0.26.1",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "ethers": "^5.6.1",
     "express": "^4.17.3",
